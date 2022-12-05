@@ -1,0 +1,33 @@
+<div class="col-sm-6 offset-3"></div>
+<div class="container">
+  <form name="loginform" id="loginform" method="post">
+    <img class="mb-4"
+      src="https://media.istockphoto.com/vectors/car-icon-auto-vehicle-isolated-transport-icons-automobile-silhouette-vector-id1273534607?k=20&m=1273534607&s=170667a&w=0&h=BVJi9caoO31fkEY0p8Q9KYXiWROSRo7LbtgnBXfujWM="
+      alt="" width="72" height="57">
+    <h1 class="h3 mb-3 fw-normal text-center ">Please sign in</h1>
+
+    <div class="form-floating mb-3 ">
+      <input type="email" class="form-control" id="Email" name="email" placeholder="name@example.com">
+      <label for="floatingInput">Email address</label>
+      <span id="remail" style="color: red;"></span>
+    </div>
+    <div class="form-floating mb-3">
+      <input type="password" class="form-control" id="Password" name="password" placeholder="Password">
+      <label for="floatingPassword">Password</label>
+      <span id="rpass" style="color: red;"></span>
+    </div>
+
+    <div class="checkbox mb-3">
+      <label>
+        <input type="checkbox" value="remember-me"> Remember me
+      </label>
+    </div>
+    <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+  </form>
+  {{#if message}}
+  <div class="alert alert-danger">{{message}}</div>
+  {{/if}}
+
+</div>
+</div>
+</div>

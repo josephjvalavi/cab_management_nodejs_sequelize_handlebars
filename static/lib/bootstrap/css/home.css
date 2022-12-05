@@ -1,0 +1,32 @@
+parent {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.h1{
+    width: 72vw;
+    position: absolute;
+    margin-top: 35px;
+    margin-left:35px ;
+    color: white;
+    font-family:'Times New Roman' ;
+    font-weight: 300;
+    
+}
+.container-fluid {
+    justify-content: flex-end;
+}
+.mainpart{
+    background-image: url('https://cms-web.olacabs.com/00000000383.jpg');
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+    
+}
+.main-down{
+    width: 100vw;
+    height: 100vh;
+    background-color: white;
+}

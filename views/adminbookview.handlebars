@@ -1,0 +1,25 @@
+
+</div>
+<div>
+    <table class="table table-dark table-hover">
+    <tr>
+        <th>id</th>
+        <th>firstname</th>
+        <th>secondname</th>
+        <th>email</th>
+        <th>phone</th>
+        <th>password</th>
+    </tr>
+    
+    {{#each data}}
+    <tr>
+    <td>{{this.dataValues.id}}</td>
+    <td>{{this.dataValues.firstName}}</td>
+    <td>{{this.dataValues.lastName}}</td>
+    <td>{{this.dataValues.email}}</td>
+    <td>{{this.dataValues.phone}}</td>
+    <td>{{this.dataValues.password}}</td>
+    {{/each }}
+    </tr>
+    </table>
+</div>
