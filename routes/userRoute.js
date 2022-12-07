@@ -11,5 +11,6 @@ route.get('/profile',controller.userProfile);
 route.get('/updateuser',controller.updateUserGet);
 route.post('/updateuser',controller.updateUserPost);
 route.get('/deleteuser',controller.deleteUser);
+route.get('/logout',controller.logout);
 
 module.exports = route;

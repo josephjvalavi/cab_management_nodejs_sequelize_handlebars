@@ -7,10 +7,9 @@ module.exports = async (req, res, next) => {
         user: null
     }
 
-    if(req.url == "/login" || req.url == "/signup" || req.url == "/" ){
+    if( req.url == "/" || req.url == "/login" || req.url == "/signup"||req.url=="/driversignup"){
         return next();
     }
-
     let userId = req.session.userId;
 
     console.log("15hlo");
@@ -34,6 +33,8 @@ module.exports = async (req, res, next) => {
         phone: userFromDb.dataValues.phone,
         adress: userFromDb.dataValues.adress,
         role: 'user'
+       
     }
+
     next();
 }

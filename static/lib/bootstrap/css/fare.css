@@ -1,0 +1,16 @@
+.fare{
+    width: 60vw;
+    height: 60vh;
+    margin-top: 10pc;
+    margin-left: 120px;
+   
+    background-image: url(https://www.shutterstock.com/image-vector/taxi-service-yellow-cab-hands-600w-557073058.jpg);
+}
+.fare >h1{
+    position: absolute;
+    top: 17pc;
+    left: 30pc;
+    text-shadow: 12px 12px 12px 12px;
+    size: 8pc;
+
+}

@@ -7,7 +7,7 @@ module.exports = async (req, res, next) => {
         drive: null
     }
 
-    if(req.url == "/driverlogin" || req.url == "/driversignup" ){
+    if(req.url == "/driverlogin" || req.url == "/driversignup" || req.url=="/"){
         return next();
     }
 
@@ -35,5 +35,6 @@ module.exports = async (req, res, next) => {
         adress: driverFromDb.dataValues.adress,
         role: 'driver'
     }
+    
     next();
 }

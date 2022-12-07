@@ -30,11 +30,11 @@ module.exports.postDriver= async (req,res,next)=>{
         carType:carmodel
     });
 
-    await res.redirect('logindriver');
+    await res.redirect('/driverlogin');
 }
 
 module.exports.getLoginDriver=(req,res,next)=>{
-    res.render('/driverlogin');
+    res.render('logindriver');
 }
 
 module.exports.postLoginDriver=async (req,res,next)=>{
@@ -58,8 +58,9 @@ module.exports.postLoginDriver=async (req,res,next)=>{
 
 
 }
-module.exports.driverProfile=(req,res,next)=>{
-    res.render('driverprofile');
+module.exports.driverProfile=async (req,res,next)=>{
+    let driverDetails=await driver.findByPk(req.session.driverId);
+    res.render("driverprofile",{data:driverDetails});
 }
 module.exports.updateDriverGet= async (req,res)=>{
     driverToUpdate=await driver.findByPk(req.session.driverId);

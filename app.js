@@ -2,12 +2,13 @@ const userRoute= require('./routes/userRoute');
 const bookRoute= require('./routes/bookRoute');
 const driverRoute= require('./routes/driverRoute');
 const adminRoute= require('./routes/adminRoute');
+const fareRoute= require('./routes/fareRoute');
 const express=require('express');
 const parser = require('body-parser');
 const {engine} = require('express-handlebars');
 const cookieSession = require('cookie-session');
 const authMiddleware = require('./middleware/middleWare');
-const authMiddlewareDriver = require('./middleware/drivermiddleWare');
+ const authMiddlewareDriver = require('./middleware/drivermiddleWare');
 
 const path = require('path');
 app=express();
@@ -23,11 +24,12 @@ app.use(cookieSession({
     maxAge: 24 * 60 * 60 * 1000
 }));
 app.use(authMiddleware);
-app.use(authMiddlewareDriver);
-app.use(userRoute);
+// app.use(authMiddlewareDriver);
+app.use( userRoute);
 app.use(driverRoute);
 app.use(adminRoute);
 app.use(bookRoute);
+app.use(fareRoute);
 
 
 

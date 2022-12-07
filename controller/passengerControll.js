@@ -1,18 +1,29 @@
 const passenger=require('../model/cab').Passenger;
+const driver=require('../model/cab').Driver;
 const parser=require('body-parser');
 const { where } = require('sequelize');
+
 module.exports.getHome=(req,res)=>{
     res.render('home');
 
 }
+module.exports.logout=(req,res)=>{
+    req.session=null;
+    res.redirect("/login");
+}
 module.exports.getPassenger=(req,res,next)=>{
-    res.render('signup');
+    var captcha = Math.floor(1000 + Math.random() * 9000);
+    console.log(captcha);
+    req.session.captcha=captcha;
+
+    res.render('signup',{captcha:captcha});
 }
 
 module.exports.postPassenger= async (req,res,next)=>{
     console.log(req.body)
-    
-    const { firstname,lastname,adress,email, password,phone } = req.body;
+    const { firstname,lastname,adress,email, password,phone,captcha } = req.body;
+    if(captcha==req.session.captcha){
+
     let existingUser = await passenger.findOne({
         where: {
             email: email
@@ -34,6 +45,7 @@ module.exports.postPassenger= async (req,res,next)=>{
 
     await res.redirect('login');
 }
+}
 
 module.exports.getLogin=(req,res,next)=>{
     res.render('login');
@@ -53,15 +65,30 @@ module.exports.postLogin=async (req,res,next)=>{
     })
     if(loggedPassenger){
         req.session.userId=loggedPassenger.id;
-        console.log("line54",req.session.userId);
-       return res.redirect('profile');
+        console.log("line64",req.session.userId);
+       return res.redirect('/profile');
     }
-    res.render('login',{message:"incorrect password or email"})
+    else if(!loggedPassenger){
+        let driverid=driver.findOne({
+            where:{email:email,
+            password:password}
+        })
+    req.session.driverId=driverid.id;
+    req.identity.role="driver";
+    console.log("line73",req.session.driverId)
 
+        return res.render('driverprofile');
+    }
+    else{
+    res.render('login',{message:"incorrect password or email"})
+    }                                          
 
 }
-module.exports.userProfile=(req,res,next)=>{
-    res.render('profile');
+module.exports.userProfile=async (req,res,next)=>{
+    let userDetails=await passenger.findByPk(req.session.userId);
+    console.log("line89passenger controll",userDetails);
+    res.render('profile',{data:userDetails});
+
 }
 module.exports.updateUserGet= async (req,res)=>{
     userToUpdate=await passenger.findByPk(req.session.userId);
@@ -95,7 +122,7 @@ module.exports.updateUserPost= async (req,res)=>{
             await passenger.destroy({
                 where:{id:req.session.userId}
             })
-            await res.redirect('/login');
+            await res.redirect('/profile');
         }
 
 

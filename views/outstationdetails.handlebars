@@ -1,3 +1,4 @@
+{{>navbarbook}}
 <div>
     <h2 class="text-center text-warning"> Cab Driver details </h2>
 </div>
@@ -5,31 +6,29 @@
 <div>
     <table class="table table-dark table-hover table-striped mt-4">
     <tr>
-        <th>id</th>
-        <th>Name</th>
-        <th>email</th>
+        <th>car</th>
+        <th>Name</th> 
         <th>phone</th>
         <th>Adress</th>
         <th>reg number</th>
         <th>car Type</th>
-        <th>password</th>
+        
         <th>Action</th>
     </tr>
     
     {{#each data}}
     <tr>
-    <td>{{this.dataValues.id}}</td>
+    <td><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkkgaOpBV2JmxxkvYK_69lrHA1ou5PdFbf3qrsluA9&s" alt=""></td>
     <td>{{this.dataValues.name}}</td>
-    <td>{{this.dataValues.email}}</td>
+    
     <td>{{this.dataValues.phone}}</td>
         <td>{{this.dataValues.adress}}</td>
         <td>{{this.dataValues.carNumber}}</td>
         <td>{{this.dataValues.carType}}</td>
-        <td>{{this.dataValues.password}}</td>
+        
         <td>
-                    <a href="/adminupdatedriver/ {{this.dataValues.id}}" class="text-primary">Update</a>
-                    <a href="/admindeletedriver/{{this.dataValues.id}}" class="text-danger"
-                        onclick="return confirm('Are you sure you want to delete this')">Delete</a>
+                    <a href="/bookcab/{{this.dataValues.id}}" class="text-primary">BOOK</a>
+                    
                 </td>
     {{/each }}
     </tr>

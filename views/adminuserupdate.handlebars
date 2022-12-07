@@ -1,66 +1,46 @@
-<div class="loginparent">
-    <div class="imagebox">
-        <img src="https://olawebcdn.com/images/v1/bg_city.jpg" alt="">
-
-    </div>
-    <div class="formblock">
+   <div class="formblock">
         <div class="container-fluid">
             <div class="col-sm-9 offset-2 ">
-                <h1 class="text-center">Signup</h1>
+                <h1 class="text-center">Update profile</h1>
 
                 <form method="POST">
                     <div>
                         <label>first Name</label>
                         <input type="text" name="firstname" class="form-control" placeholder="firstName" minlength="5"
-                            maxlength="50" required>
+                            maxlength="50" value={{data.dataValues.firstName}} required>
                     </div>
                     <div>
                         <label>Last Name</label>
                         <input type="text" name="lastname" class="form-control" placeholder="lastName" minlength="5"
-                            maxlength="50" required>
+                            maxlength="50" value={{data.dataValues.lastName}} required>
                     </div>
                     <div>
                         <label>Email</label>
                         <input type="email" name="email" class="form-control" placeholder="me@example.com" minlength="5"
-                            maxlength="50" required>
+                            maxlength="50" value={{data.dataValues.email}}
+                            required>
                     </div>
                     <div>
                         <label>phone</label>
                         <input type="text" name="phone" class="form-control" placeholder="phone" minlength="10"
-                            maxlength="10" required>
+                            maxlength="10" value={{data.dataValues.phone}} required>
                     </div>
                     <div>
                         <label>Adress</label>
                         <input type="text" name="adress" class="form-control" placeholder="current adress" minlength="5"
-                            maxlength="50" required>
+                            maxlength="50" value={{data.dataValues.adress}}>
                     </div>
 
                     <div>
                         <label>Password</label>
                         <input type="password" placeholder="password" name="password" class="form-control" minlength="8"
-                            maxlength="25" required>
+                            maxlength="25" value={{data.dataValues.password}}>
                     </div>
-                    <div>
-                        <label>Confirm Password</label>
-                        <input type="password" name="cpassword" placeholder="confirm password" class="form-control"
-                            minlength="8" maxlength="25" required>
-                    </div>
-                    {{#if captcha}}
-                    <div>
-                    <p class="text-warning">{{captcha}}</p>
-                    <label>captcha</label>
-                  <input type="text" name="captcha" placeholder="enter captcha" class="form-control">
-
-                    </div>
+                    {{#if message}}
+                    <div class="alert alert-success">{{message}}</div>
                     {{/if}}
                     <div class="d-grid mt-4">
-                        {{#if data}}
-                        
-                        <p class="text-danger">{{data}}</p>
-
-                        
-                    {{/if}}
-                        <button class="btn btn-primary shadow" type="submit" id="btn-login">SIGNUP</button>
+                        <button class="btn btn-primary shadow" type="submit" id="btn-login">UPDATE</button>
 
                     </div>
                     
@@ -68,7 +48,4 @@
             </form>
 
         </div>
-    </div>
-</div>
-{{!-- <h1 class="top" style = "position: relative;color:white;top:-65vh;left:-20vw;">India's most ambitious car</h1> --}}
-</div>
+        </div>

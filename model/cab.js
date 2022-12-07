@@ -78,7 +78,12 @@ const Passenger= db.sequelize.define("passengerDetails",{
         phone:{
             type:DataTypes.STRING,
             allowNull:false
+        },
+        driverid:{
+            type:DataTypes.STRING,
+            allowNull:true
         }
+
     
     
         })
@@ -132,9 +137,39 @@ const Passenger= db.sequelize.define("passengerDetails",{
         
             })
 
+            const Fare=db.sequelize.define("fareDetails",{
+
+                id:{
+                    type:DataTypes.INTEGER,
+                    autoIncrement:true,
+                    primaryKey:true,
+            
+                },
+                
+                source:{
+                    type:DataTypes.STRING,
+                    allowNull:false,
+                    
+            
+                },
+                destination:{
+                    type:DataTypes.STRING,
+                    allowNull:false,
+                    unique:false
+                    
+            
+                },
+                fare:{
+                    type:DataTypes.INTEGER,
+                    allowNull:false
+                }
+                
+            },{ timestamps: false })
+
             Passenger.hasMany(Booking)
             Booking.belongsTo(Passenger)
             module.exports.Driver =Driver;
             module.exports.Booking =Booking;
             module.exports.Passenger =Passenger;
+            module.exports.Fare =Fare;
         

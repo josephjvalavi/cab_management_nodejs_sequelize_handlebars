@@ -1,7 +1,8 @@
-
+<div>
+<h2 class="text-center ">Cab User Details</h2>
 </div>
 <div>
-    <table class="table table-dark table-hover">
+    <table class="table table-dark table-hover table-striped mt-4">
     <tr>
         <th>id</th>
         <th>firstname</th>
@@ -9,6 +10,7 @@
         <th>email</th>
         <th>phone</th>
         <th>password</th>
+        <th>Action</th>
     </tr>
     
     {{#each data}}
@@ -19,6 +21,11 @@
     <td>{{this.dataValues.email}}</td>
     <td>{{this.dataValues.phone}}</td>
     <td>{{this.dataValues.password}}</td>
+    <td>
+        <a href="/adminupdateuser/ {{this.dataValues.id}}" class="text-primary">Update</a>
+                    <a href="/admindeleteuser/{{this.dataValues.id}}" class="text-danger"
+                        onclick="return confirm('Are you sure you want to delete this')">Delete</a>
+    </td>
     {{/each }}
     </tr>
     </table>

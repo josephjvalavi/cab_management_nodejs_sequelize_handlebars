@@ -5,16 +5,27 @@ parent {
     justify-content: flex-end;
     align-items: center;
 }
-.h1{
+.hero{
     width: 72vw;
     position: absolute;
-    margin-top: 35px;
-    margin-left:35px ;
+    
     color: white;
     font-family:'Times New Roman' ;
     font-weight: 300;
     
+    position: absolute;
+    top: 142px;
+    left: 225px;
+   
+    
 }
+h4{
+    position: absolute;
+    top: 109px;
+    left: 400;
+}
+
+
 .container-fluid {
     justify-content: flex-end;
 }
