@@ -41,6 +41,10 @@ const Passenger= db.sequelize.define("passengerDetails",{
     password:{
         type:DataTypes.STRING,
         allowNull:false
+    },
+    role:{
+        type:DataTypes.STRING,
+        allowNull:false 
     }
 
     })
@@ -82,6 +86,10 @@ const Passenger= db.sequelize.define("passengerDetails",{
         driverid:{
             type:DataTypes.STRING,
             allowNull:true
+        },
+        bookingdate:{
+            type:DataTypes.DATEONLY,
+            allowNull:false
         }
 
     
@@ -166,8 +174,8 @@ const Passenger= db.sequelize.define("passengerDetails",{
                 
             },{ timestamps: false })
 
-            Passenger.hasMany(Booking)
-            Booking.belongsTo(Passenger)
+             Passenger.hasMany(Booking)
+             Booking.belongsTo(Passenger)
             module.exports.Driver =Driver;
             module.exports.Booking =Booking;
             module.exports.Passenger =Passenger;

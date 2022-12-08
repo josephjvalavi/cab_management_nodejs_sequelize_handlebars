@@ -40,7 +40,8 @@ module.exports.postPassenger= async (req,res,next)=>{
         email: email,
         phone:phone,
         password: password,
-        adress:adress
+        adress:adress,
+        role:"passenger"
     });
 
     await res.redirect('login');
@@ -56,33 +57,40 @@ module.exports.postLogin=async (req,res,next)=>{
     console.log("hlo");
     console.log(email)
     console.log(password)
-    
   let loggedPassenger= await passenger.findOne({
         where:{
             email:email,
             password:password
         }
-    })
+    });
     if(loggedPassenger){
         req.session.userId=loggedPassenger.id;
         console.log("line64",req.session.userId);
        return res.redirect('/profile');
     }
-    else if(!loggedPassenger){
-        let driverid=driver.findOne({
+     if(!loggedPassenger||loggedPassenger==null){
+        let driverid= await driver.findOne({
             where:{email:email,
             password:password}
         })
+        if(driverid){
+        console.log("line76",driverid)
     req.session.driverId=driverid.id;
-    req.identity.role="driver";
-    console.log("line73",req.session.driverId)
+
+    req.session.role=2;
+    console.log("line80",req.session.driverId)
 
         return res.render('driverprofile');
     }
-    else{
+}
+    if(email=="admin@gmail.com" && password=="123456789" ){
+        req.session.role=3;
+        res.redirect("/admin")
+    } 
+    else{                                         
     res.render('login',{message:"incorrect password or email"})
-    }                                          
 
+}
 }
 module.exports.userProfile=async (req,res,next)=>{
     let userDetails=await passenger.findByPk(req.session.userId);

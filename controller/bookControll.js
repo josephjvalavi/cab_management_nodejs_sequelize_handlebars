@@ -1,6 +1,7 @@
 const book= require('../model/cab').Booking;
 const driver= require('../model/cab').Driver;
 const parser=require('body-parser');
+const { formatDate } = require('date-utils-2020');
 
 module.exports.getBook=(req,res)=>{
     
@@ -19,7 +20,8 @@ module.exports.postBook= async (req,res)=>{
         phone:phone,
         time:time,
         passengerDetailId:bookedUser,
-        driverid:req.params.id
+        driverid:req.params.id,
+        bookingdate:formatDate(new Date(), "yyyy/MM/dd")
 
     })
     await res.redirect("/fare");

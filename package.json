@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start":"nodemon app.js",
-    "sync":"node ./model/sync.js",
+    "start": "nodemon app.js",
+    "sync": "node ./model/sync.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -13,6 +13,8 @@
   "license": "ISC",
   "dependencies": {
     "cookie-session": "^2.0.0",
+    "date-utils": "^1.2.21",
+    "date-utils-2020": "^1.0.3",
     "express": "^4.18.2",
     "express-handlebars": "^6.0.6",
     "mysql2": "^2.3.3",

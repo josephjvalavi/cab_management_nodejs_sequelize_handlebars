@@ -49,6 +49,7 @@ module.exports.postLoginDriver=async (req,res,next)=>{
             password:password
         }
     })
+    console.log(loggedDriver)
     if(loggedDriver){
         req.session.driverId=loggedDriver.id;
         console.log("line54drivert",req.session.driverId);
@@ -97,7 +98,7 @@ module.exports.updateDriverPost= async (req,res)=>{
             await driver.destroy({
                 where:{id:req.session.driverId}
             })
-            await res.redirect('/logindriver');
+            await res.redirect('/login');
         }
 
 

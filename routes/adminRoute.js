@@ -13,5 +13,6 @@ route.post("/adminupdatedriver/:id",controller.adminDriverUpdatePost);
 route.get("/admindeleteuser/:id",controller.adminUserDelete);
 route.get("/admindeletedriver/:id",controller.adminDriverDelete);
 route.get("/admincancelride/:id",controller.adminCancelRide);
+route.post("/admin",controller.searchDate);
 
 module.exports=route;

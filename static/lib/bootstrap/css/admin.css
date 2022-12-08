@@ -1,0 +1,29 @@
+.dashboard{
+    width: 100vw;
+    height: 90vh;
+/* background-image: url(https://thumbs.dreamstime.com/b/group-business-people-working-office-desk-40180347.jpg); */
+display: flex;
+align-items: center;
+background-repeat: no-repeat;
+background-size: cover;
+
+}
+.dashrow{
+    width: 100vw;
+    height: 45vh;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+.dash{
+    width: 25vw;
+    height: 35vh;
+    background:whitesmoke;
+    border-radius: 8px;
+    border: 9px solid rgb(184, 176, 176);
+    box-shadow: 12px 5px 15px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

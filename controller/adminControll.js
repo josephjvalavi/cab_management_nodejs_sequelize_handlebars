@@ -2,11 +2,21 @@ const parser=require('body-parser');
 const driver=require('../model/cab').Driver;
 const passenger=require('../model/cab').Passenger;
 const book=require('../model/cab').Booking;
+const {Op}=require('sequelize');
 const { where } = require('sequelize');
+const {formatDate}=require('date-utils-2020')
 
-module.exports.getadmin=(req,res)=>{
-    res.render('admin');
+module.exports.getadmin=async(req,res)=>{
+    req.session.role=3;
+    let usercount=await passenger.count();
+    let drivercount=await driver.count();
+    let bookcount=await book.count();
+    const data={usercount,drivercount,bookcount}
+    console.log(data)
+    res.render('admin',{data:data});
+
 }
+
 module.exports.allUsers=async(req,res)=>{
     let data=await passenger.findAll()
     res.render('adminuserview',{data:data});
@@ -88,4 +98,17 @@ module.exports.adminCancelRide=async (req,res)=>{
 await book.destroy({
     where:{id:req.params.id}
 })
+}
+module.exports.searchDate=async(req,res)=>{
+    const{date}=req.body
+let data=await book.findAll({
+    where:{
+        bookingdate: {
+
+            [Op.eq]: date
+    
+          }
+}})
+res.render("adminbookview",{data:data})
+console.log("searchdate",data);
 }

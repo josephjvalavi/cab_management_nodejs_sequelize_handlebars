@@ -10,5 +10,6 @@ route.post('/driverlogin',controller.postLoginDriver);
 route.get('/driverprofile',controller.driverProfile);
 route.get('/driverupdate',controller.updateDriverGet);
 route.post('/driverupdate',controller.updateDriverPost);
+route.post('/driverdelete',controller.deleteDriver);
 
 module.exports=route;

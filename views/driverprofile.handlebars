@@ -4,19 +4,40 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .caption{
+            width: 100vw;
+            height: 50vw;
+            background-image: url(https://img.freepik.com/free-photo/young-man-sits-newly-purchased-car-wheel-successful-purchase_146671-14712.jpg?w=1060&t=st=1670428257~exp=1670428857~hmac=5d5962fe9fc1e94b9ee6df2377fa4b0ae62c99b1b8a715388c3c72a2db571e1d);
+            display: flex;
+            justify-content: center;
+        }
+    </style>
 
     <title>Document</title>
 </head>
 <body>
+    {{>navbardriverprofile}}
     <div class="profile">
+        <h1 style="position:absolute;top:16pc;left:10pc">drivers are matter here</h1>
     <div class="caption">
-        <h1 class="text-center">rides that safer</h1>
-        <h3 style="position: absolute;position: absolute;
-    top: 10pc;">welcome {{data.dataValues.name}}</h3>
-        <a href="/viewbooking"><button class="btn btn-primary">view bookingcab</button></a>
-       <a href="/driverupdate"> <button class="btn btn-success">update profile</button></a>
-       <a href="/deletedriver" > <button class="btn btn-danger" onclick=alert ("are you sure to delete this account")>delete profile</button></a>
+        <div class="row align-items-center gx-6 mb-3">
+            <div class="col ms-2">
+               <a href="/viewbooking"><img src="https://s3-ap-southeast-1.amazonaws.com/ola-prod-website/olalogo.svg" style="width:10pc;height:13pcpx" alt=""></a> 
+                </div>
+                
+
+
+            
+            </div>                
+        </div>
     </div>
 </div>
 </body>
 </html>
+{{!-- <h1 class="text-center">rides that safer</h1>
+        <h3 style="position: absolute;position: absolute;
+    top: 10pc;">welcome {{data.dataValues.name}}</h3>
+        <a href="/viewbooking"><button class="btn btn-primary">view bookingcab</button></a>
+       <a href="/driverupdate"> <button class="btn btn-success">update profile</button></a>
+       <a href="/deletedriver" > <button class="btn btn-danger" onclick=alert ("are you sure to delete this account")>delete profile</button></a> --}}

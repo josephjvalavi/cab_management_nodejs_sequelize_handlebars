@@ -4,18 +4,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <link rel="stylesheet" href="static\lib\bootstrap\css\admin.css">
     <title>Document</title>
 </head>
 <body>
-    <div class="profile">
-    <div class="caption">
-        <h1 class="text-center">rides that safer</h1>
-        <a href="/adminuserview"><button class="btn btn-primary">user view</button></a>
-       <a href="admindriverview"> <button class="btn btn-success">driver view</button></a>
-       <a href="/adminbookview" > <button class="btn btn-danger" >book view</button></a>
-       
+    {{>navbar2}}
+   <h1  style="position:absolute;
+    top: 7pc;
+    left: 35pc;color:rgb(24, 3, 14)">Admin controlls</h1> 
+   <div class="dashboard">
+    <div class="dashrow">
+        <div class="dash"><h1 class="text-center text-success">{{data.usercount}}</h1> <br> <h2 class="text-center  text-success">Users </h2></div>
+        <div class="dash"><h1 class="text-center  text-info">{{data.drivercount}}</h1> <br> <h2 class="text-center  text-success">driver </h2></div>
+        <div class="dash"><h1 class="text-center  text-danger">{{data.bookcount}}</h1>  <br> <h2 class="text-center  text-success">booking</h2></div>
     </div>
-</div>
+    <div>
 </body>
 </html>
