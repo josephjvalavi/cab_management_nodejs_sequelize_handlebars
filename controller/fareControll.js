@@ -11,6 +11,9 @@ module.exports.payment=async (req,res)=>{
             destination:destination
         }
     })
-    console.log(price);
+
+    console.log("price",price);
+    req.session.price=price;
+
     res.render('invoice',{data:price})
 }

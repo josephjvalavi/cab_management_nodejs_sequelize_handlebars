@@ -27,8 +27,11 @@ module.exports.postBook= async (req,res)=>{
     await res.redirect("/fare");
 
 }
-module.exports.confirmation=(req,res)=>{
-    res.render('confirmation');
+module.exports.confirmation=async(req,res)=>{
+    let data= {source,destination,price}=req.session;
+    console.log("confirmationfare",data)
+    
+    res.render('confirmation',{data:data});
 }
 module.exports.cancellBooking=async (req,res)=>{
     let bookedId=await book.findOne({
@@ -43,6 +46,7 @@ module.exports.cancellBooking=async (req,res)=>{
 }
 module.exports.outStation=async (req,res)=>{
     let data=await driver.findAll(); 
+
     
     res.render("outstationdetails",{data:data});
 }

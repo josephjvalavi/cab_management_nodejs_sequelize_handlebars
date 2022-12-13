@@ -1,5 +1,6 @@
 const passenger=require('../model/cab').Passenger;
 const driver=require('../model/cab').Driver;
+const book=require('../model/cab').Booking;
 const parser=require('body-parser');
 const { where } = require('sequelize');
 
@@ -134,5 +135,10 @@ module.exports.updateUserPost= async (req,res)=>{
         }
 
 
-    
+    module.exports.showUserBooking=async(req,res)=>{
+        let data=await book.findAll({
+            where:{passengerDetailId:req.session.userId}
+        })
+        res.render('usershowbook',{data:data})
+    }
 

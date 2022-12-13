@@ -1,5 +1,6 @@
 const parser=require('body-parser');
 const driver=require('../model/cab').Driver;
+const book=require('../model/cab').Booking;
 const { where } = require('sequelize');
 module.exports.getDriver=(req,res,next)=>{
     res.render('signupdriver');
@@ -100,7 +101,12 @@ module.exports.updateDriverPost= async (req,res)=>{
             })
             await res.redirect('/login');
         }
-
+module.exports.driverShowBooking=async(req,res)=>{
+    let data=await book.findAll({
+        where:{driverid:req.session.driverId}
+    })
+    res.render('adminbookview',{data:data})
+}
 
     
 

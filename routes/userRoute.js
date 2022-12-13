@@ -12,5 +12,6 @@ route.get('/updateuser',controller.updateUserGet);
 route.post('/updateuser',controller.updateUserPost);
 route.get('/deleteuser',controller.deleteUser);
 route.get('/logout',controller.logout);
+route.get('/showbooking',controller.showUserBooking);
 
 module.exports = route;

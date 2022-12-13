@@ -11,5 +11,7 @@ route.get('/driverprofile',controller.driverProfile);
 route.get('/driverupdate',controller.updateDriverGet);
 route.post('/driverupdate',controller.updateDriverPost);
 route.post('/driverdelete',controller.deleteDriver);
+route.get('/drivershowbookings',controller.driverShowBooking);
+
 
 module.exports=route;
